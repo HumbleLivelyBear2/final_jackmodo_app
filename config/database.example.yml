@@ -1,0 +1,24 @@
+ development: 
+    adapter: mysql2
+    host: localhost
+    username: root
+    encoding: utf8
+    password:
+    database: jack
+
+  test: 
+    adapter: mysql2
+    host: localhost
+    username: root
+    encoding: utf8
+    password:
+    database: jack
+
+  production: 
+    adapter: mysql2
+    host: localhost
+    encoding: utf8
+    database: jack
+    username: root
+    password: 
+

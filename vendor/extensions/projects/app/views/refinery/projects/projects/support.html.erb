@@ -1,0 +1,163 @@
+<div id="maincontent">
+  <div id="wrapper">
+        <div id="content_wrap">
+            <div id="content">
+    
+<div class="container clearfix">
+    <aside class="fr no-top">
+    <div class="fl badge rounded shadow">
+      
+
+  
+        <div class="image clearfix" style="height:220px; width:220px">
+            <%= image_fu @project.case_samll_photo, '220x220' %>
+        </div>
+
+        <div class="project-category">
+            <%= @project.case_type %>
+        </div>
+
+        <div class="project-details">
+            <a href="#" class="name " target="_blank"><%= @project.case_name %> </a>
+            <p class="creator">by <%= @project.designer_name %></p>
+            <p class="description"> <%=raw @project.case_title %></p>
+        </div>
+
+        <div class="targets clearfix">
+            <div class="bannerContent3">
+            <ul>
+            <li class="orderDate" style="height:180px;"><span><%= @project.case_support_people_num %></span></li> <!-- amount of people-->
+            <li class="blue">$<%= @project.case_current_money %></li>
+            <li class="targetPrice" style=" margin-top:5px; ">目標$<%= @project.case_wanted_money %></li>
+            <li class="timeN" style=" height:65px; "><span style=" padding-top:35px;">剩餘 <%= @project.left_days %> 天</span></li>
+            </ul>
+            </div>
+        </div>
+
+    </div>
+    </aside>
+	
+	<form id="payPalForm" action="/staticpages/redirect_to_paypal" method="post">
+	<!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="payPalForm">   start of paypal form-->
+		<INPUT TYPE="hidden" name="charset" value="utf-8">
+		<!-- product name -->
+		<input type="hidden" name="item_name" value="<%= @project.case_name %>">
+		<!-- <input type="hidden" name="item_number" value=""> -->
+		<input type="hidden" name="cmd" value="_xclick">
+		<input type="hidden" name="business" value="jackmodo2012@gmail.com">
+		<input type="hidden" name="currency_code" value="TWD">
+		<input type="hidden" name="return" value="http://www.jackmodo.com">
+		<input type="hidden" name="notify_url" value="http://localhost:3000/payments">
+		<input type="hidden" name="id" value="<%= @project.id %>">
+		
+		
+		<!--Enable override of buyers’s address stored with PayPal 
+		<input type="hidden" name="address_override" value="1">
+		<input type="hidden" name="first_name" value="小柯">
+		<input type="hidden" name="last_name" value="柯">
+		<input type="hidden" name="address1" value="新北市汐止區">
+		<input type="hidden" name="city" value="新北市">
+		<input type="hidden" name="state" value="TW">
+		<input type="hidden" name="zip" value="57142">
+		<input type="hidden" name="country" value="TW">
+		<input type="hidden" name="night_phone_a" value="0912">
+		<input type="hidden" name="night_phone_b" value="5855506">
+		<input type="hidden" name="night_phone_c" value="">
+		<input type="hidden" name="email" value="jdoe@zyzzyu.com">
+		-->
+		
+		<!-- amount = money for a single product-->
+		<input type="hidden" name="amount"  value="<%= @project.case_price %>">
+		
+		
+		
+    <section class="fl box rounded shadow">
+        <fieldset>  
+            <div class="heading">
+                <h1 class="title">ㄧ.預購的商品數 </h1>
+                <!-- <p class="sub-title">請選擇一種預購方案</p> -->
+            </div>
+
+      <div class="group perks-selection">
+        <p>
+          非常感謝您喜愛這項產品, 請在下放空格輸入你想要預購的數量 (預設為1件)
+        </p>
+        <div class="clearfix input-item-text" style="margin-bottom:5px;position:relative">
+		  <input type="text" name="quantity" class="short rounded fl" id="pledge-amt_gross" value="1">
+          <div style="width:0px;left:7px;top:6px;position:absolute;"></div>件
+        </div>
+        
+      </div><!--end graybox -->
+      </fieldset>
+
+    </section>
+
+    
+    <section id="shipping-section" class="fl box rounded shadow">
+    <fieldset>  
+      <div class="heading">
+        <h1 class="title">二. 貨物運送資訊</h1>
+        <p class="sub-title">
+          請輸入貨物的收件人資訊
+        </p>
+      </div>
+      <div class="group"><!--graybox -->
+        <fieldset>
+            <div class="input-item-text clearfix">
+              <label class="fl newlabel" for="name">
+                聯絡人名稱 
+              </label>
+              <input class="fl long rounded" placeholder="傑克魔豆" size="30" type="text" name="name">
+            </div>
+            
+            <div class="input-item-text clearfix">
+              <label class="fl newlabel" for="address">
+                email
+              </label>
+              <input class="fl long rounded" placeholder="jackmodo2012@gmail.com" size="30" type="text" name="email">
+            </div>
+            <div class="input-item-text clearfix">
+              <label class="fl newlabel" for="city">
+                電話
+              </label>
+              <input class="fl long rounded" placeholder="09xx-xxxxxx" size="30" type="text" name="phone">
+            </div>
+            
+		</fieldset>
+      </div><!--end graybox -->
+      </fieldset>
+    </section>    
+  
+    <section class="fl box rounded shadow" id="comment-section">
+    <fieldset>  
+      <div class="heading">
+        <h1 class="title">三: 確認並預購 </h1>
+        
+        <p class="sub-title" id="add-comment-text">
+          可選擇以PayPal帳戶或以信用卡方式付款</p>
+      </div>
+
+      <input id="pledge_comment_appearance" name="pledge[comment_appearance]" type="hidden" value="STAP_VSBL">
+
+      <div class="group"><!--graybox -->
+        <fieldset>         
+			<input type="submit" name="Submit" value="確定購買" class="pay_2 b_title">
+			</form> <!-- end of paypal form -->
+		</fieldset>
+      </div><!--end graybox -->
+    </fieldset>  
+    </section>
+   
+ 	<input id="pledge_pledge_type" name="pledge[pledge_type]" type="hidden" value="PLDG_FRAC">
+  </div>
+
+    
+    </div>
+</div>
+
+<br>
+<br>
+     
+
+</div>
+

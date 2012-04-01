@@ -1,0 +1,132 @@
+<br>
+<br>
+<br>
+<br>
+
+<% if @projects.present? %>
+	
+	
+ 
+	
+
+  <div id="wrapper">
+      <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+			
+			<% @projects.each do |a| %>
+            <a href="modo/projects/<%= a.id %>">
+                <div class="bannerContent">
+                 <ul>
+                  <li class="orderTitle"><span></span><%= a.case_name %></li>
+                  <li class="orderDiscribe">by <%= a.designer_name %> on <%= a.start_date %></li>
+                  <li class="leftLine"></li>
+                  <li class="orderDate"><span><%= a.case_support_people_num %></span></li>
+                  <li class="blue">$<%= a.case_current_money %></li>
+                  <li class="targetPrice">目標$<%= a.case_wanted_money %></li>
+                  <li class="timeN"><span>剩餘 <%= a.left_days %> 天</span></li>
+                 </ul>
+                </div>
+				<%= image_fu a.case_promote_photo, '960x360' %>
+            </a>
+            
+			<% end %>
+            <!-- <a href="#">
+                            <div class="bannerContent">
+                             <ul>
+                              <li class="orderTitle"><span></span>鞋子魔力</li>
+                              <li class="orderDiscribe">by FairyMEDIA on Mar 2, 2012</li>
+                              <li class="leftLine"></li>
+                              <li class="orderDate"><span>21</span></li>
+                              <li class="blue">$6500</li>
+                              <li class="targetPrice">目標$22500</li>
+                              <li class="timeN"><span>剩餘 10 天</span></li>
+                             </ul>
+                            </div>
+                            <img src="images/up.jpg" alt="" title="#title2" />
+                        </a>
+                        
+                        <a href="#">
+                            <div class="bannerContent">
+                            <ul>
+                             <li class="orderTitle"><span></span>帥帥</li>
+                             <li class="orderDiscribe">by FairyMEDIA on Mar 2, 2012</li>
+                             <li class="leftLine"></li>
+                             <li class="orderDate"><span>25</span></li>
+                             <li class="blue">$5800</li>
+                             <li class="targetPrice">目標$122500</li>
+                             <li class="timeN"><span>剩餘 88 天</span></li>
+                             </ul>
+                            </div>
+                            <img src="images/walle.jpg" title="#title3" data-transition="slideInLeft" />
+                        </a> -->
+        </div>
+      </div>
+    <div class="bannerBottom"></div>
+  </div>
+    
+  <div class="allFrame">
+	<% @projects.each do |a| %>
+          <ul class="products">
+            <li style=" margin-left:30px; margin-top:10px">
+              <table width="265" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td ><div class="productTitle"><img src="assets/i_unit.jpg" width="21" height="19"/><span class="bigText"><%= a.case_type %></span></div></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="whiteFrame">
+                        <div class="sTop"></div>
+						<a href="modo/projects/<%= a.id %>">
+                        	<div class="productPic"><%= image_fu a.case_samll_photo, '240x220' %></div>
+						</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+					<a href="modo/projects/<%= a.id %>">
+                    <li class="orderTitle2"><%= a.case_name %></li>
+					</a>
+                    <li class="orderDiscribe2">by <%= a.designer_name %></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="contentP"><%=raw a.case_title %></div></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="statusFrame">
+                    <table width="240" border="0" cellspacing="2" cellpadding="2" align="center" >
+                      <tr>
+                     
+                      </tr>
+                      <tr>
+                        <td>完成度:</td>
+                        <td>│<span class="sblue">$<%= a.case_current_money %> / <%= a.case_wanted_money %></span></td>
+                      </tr>
+                    </table>
+                    </div>
+                 </td>
+                </tr>
+              </table>
+			</li>
+		</ul>
+			
+		 
+	<% end %>	
+			
+        <br style="clear:both" />
+
+		
+		
+		
+        <div class="productLine"></div>
+
+
+	
+<% end %> 
+<!-- end of project contents  -->
+       
+</div>

@@ -1,0 +1,43 @@
+fr:
+  refinery:
+    plugins:
+      projects:
+        title: Projects
+    projects:
+      admin:
+        projects:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Project
+            reorder: Réordonner les Projects
+            reorder_done: Fin de réordonnancement des Projects
+          records:
+            title: Projects
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Project. Cliquer sur "Créer un(e) nouve(au/l/lle) Project" pour créer votre premi(er/ère) project.'
+          project:
+            view_live_html: Voir ce(t/tte) project <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) project
+            delete: Supprimer définitivement ce(t/tte) project
+      projects:
+        show:
+          other: Autres Projects
+  activerecord:
+    attributes:
+      'refinery/projects/project':
+        case_name: Case Name
+        case_title: Case Title
+        case_gist: Case Gist
+        case_samll_photo: Case Samll Photo
+        case_promote_photo: Case Promote Photo
+        case_current_money: Case Current Money
+        case_wanted_money: Case Wanted Money
+        case_price: Case Price
+        case_support_people_num: Case Support People Num
+        case_type: Case Type
+        designer_name: Designer Name
+        designer_gist: Designer Gist
+        designer_photo: Designer Photo
+        designer_web_link: Designer Web Link
+        designer_fb_link: Designer Fb Link
+        start_date: Start Date
+        left_days: Left Days

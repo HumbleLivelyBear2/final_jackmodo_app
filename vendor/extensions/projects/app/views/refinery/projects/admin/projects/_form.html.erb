@@ -1,0 +1,143 @@
+<%= form_for [refinery, :projects_admin, @project] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @project,
+              :include_object_name => true %>
+
+  
+  <div class='field'>
+    <%= f.label :case_name -%>
+    <%= f.text_field :case_name, :class => 'larger widest'  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_title -%>
+    <%= f.text_field :case_title  -%>
+
+  </div>
+  
+  <div class='field'>
+    <div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+      <ul id='page_parts'>
+        <% [:case_gist, :designer_gist].each_with_index do |part, part_index| %>
+          <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+            <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/projects/project", :default => part.to_s.titleize), "##{part}" %>
+          </li>
+        <% end %>
+      </ul>
+      <div id='page_part_editors'>
+        <% [:case_gist, :designer_gist].each do |part| %>
+          <div class='page_part' id='<%= part %>'>
+            <%= f.text_area part, :rows => 20, :class => 'wymeditor widest' -%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_samll_photo -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :case_samll_photo_id,
+               :image => @project.case_samll_photo,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_promote_photo -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :case_promote_photo_id,
+               :image => @project.case_promote_photo,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_current_money -%>
+    <%= f.number_field :case_current_money  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_wanted_money -%>
+    <%= f.number_field :case_wanted_money  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_price -%>
+    <%= f.number_field :case_price  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_support_people_num -%>
+    <%= f.number_field :case_support_people_num  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :case_type -%>
+    <%= f.text_field :case_type  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :designer_name -%>
+    <%= f.text_field :designer_name  -%>
+
+  </div>
+  
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :designer_photo -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :designer_photo_id,
+               :image => @project.designer_photo,
+               :toggle_image_display => false %>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :designer_web_link -%>
+    <%= f.text_field :designer_web_link  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :designer_fb_link -%>
+    <%= f.text_field :designer_fb_link  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :start_date -%>
+    <%= f.text_field :start_date  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :left_days -%>
+    <%= f.number_field :left_days  -%>
+
+  </div>
+  
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.projects.admin.projects.project'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @project.case_name) %>
+<% end -%>
+<% content_for :javascripts do %>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end %>

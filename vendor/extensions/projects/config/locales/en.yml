@@ -1,0 +1,43 @@
+en:
+  refinery:
+    plugins:
+      projects:
+        title: Projects
+    projects:
+      admin:
+        projects:
+          actions:
+            create_new: Add New Project
+            reorder: Reorder Projects
+            reorder_done: Done Reordering Projects
+          records:
+            title: Projects
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Projects yet. Click "Add New Project" to add your first project.
+          project:
+            view_live_html: View this project live <br/><em>(opens in a new window)</em>
+            edit: Edit this project
+            delete: Remove this project forever
+      projects:
+        show:
+          other: Other Projects
+  activerecord:
+    attributes:
+      'refinery/projects/project':
+        case_name: Case Name
+        case_title: Case Title
+        case_gist: Case Gist
+        case_samll_photo: Case Samll Photo
+        case_promote_photo: Case Promote Photo
+        case_current_money: Case Current Money
+        case_wanted_money: Case Wanted Money
+        case_price: Case Price
+        case_support_people_num: Case Support People Num
+        case_type: Case Type
+        designer_name: Designer Name
+        designer_gist: Designer Gist
+        designer_photo: Designer Photo
+        designer_web_link: Designer Web Link
+        designer_fb_link: Designer Fb Link
+        start_date: Start Date
+        left_days: Left Days

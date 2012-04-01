@@ -1,0 +1,76 @@
+<br>
+<br>
+
+
+
+<% content_for :body_content_left do %>
+  
+
+  
+
+<% end %>
+
+
+
+	<div id="content_wrap">
+    	<div id="content">
+    		<p class="h_title"><%= @project.case_name %> - <%= @project.designer_name %></p>
+    		<p class="h_desc">預購價NT$<%= @project.case_price %></p>
+
+    <div class="c_left">  
+        <p class="c_title">
+            <div class="productTitle">
+            <div class="i_unit"></div><span class="bigText">關於這件商品</span>
+            </div>
+        </p>
+        
+        <p class="c_desc">
+		<!-- <%= image_fu @project.case_promote_photo, '400x300' %> -->
+        <!-- <img src="" alt=""> -->
+         <%=raw @project.case_gist %>   <!-- test here-->
+        </p>
+	
+    </div>
+ 
+    <div class="c_right">
+    
+        <div class="bannerContent2">
+            <ul>
+                <li class="orderTitle"><span></span><%= @project.case_name %></li>
+                <li class="orderDiscribe">by <%= @project.designer_name %> on <%= @project.start_date %></li>
+                <li class="leftLine"></li>
+                <li class="orderDate"><span><%= @project.case_support_people_num %></span></li>
+                <li class="blue2">$<%= @project.case_current_money %></li><li class="targetPrice">目標$<%= @project.case_wanted_money %></li>
+                <li class="timeN"><span>剩餘 <%= @project.left_days %> 天</span></li>
+            </ul>
+        </div>
+     
+       
+        <form action="https://www.paypal.com/" method="post" class="supporting">
+        <a class="pay"href="<%= @project.id%>/support">
+            <div class="backop">
+                <div class="b_title">我要預購!!</div>
+            </div>
+        </a>
+        <img alt="" border="0" src="images/pixel.gif" width="1" height="1">
+        </form>
+       
+
+        <p class="c_title">發起者</p>
+        
+        <div class="funder">
+			<%= image_fu @project.designer_photo, '96x96' %>
+            <%= @project.designer_name %><br>
+            <a href="<%= @project.designer_web_link%>"  target="_blank">Website</a><br>
+            <a href="<%= @project.designer_fb_link%>" target="_blank">Facebook</a><br>
+            <div class="clear"></div>
+            <%= raw @project.designer_gist%>
+        </div>
+            <a class="button" id="question" href="/contact">我有問題</a>
+            <a class="button" name="fb_share" type="button" href="http://www.facebook.com/sharer.php">分享</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    </div>
+    
+    <div class="clear"></div>
+    </div>
+</div>
+
