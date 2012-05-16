@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  trans_id: MyString
+  payment_status: MyString
+  payer_name: MyString
+  payer_address: MyString
+
+two:
+  trans_id: MyString
+  payment_status: MyString
+  payer_name: MyString
+  payer_address: MyString

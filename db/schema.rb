@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327153544) do
+ActiveRecord::Schema.define(:version => 20120413234907) do
+
+  create_table "payments", :force => true do |t|
+    t.string   "trans_id"
+    t.string   "payment_status"
+    t.string   "payer_name"
+    t.string   "payer_address"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"

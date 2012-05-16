@@ -26,11 +26,13 @@
         <div class="targets clearfix">
             <div class="bannerContent3">
             <ul>
-            <li class="orderDate" style="height:180px;"><span><%= @project.case_support_people_num %></span></li> <!-- amount of people-->
-            <li class="blue">$<%= @project.case_current_money %></li>
-            <li class="targetPrice" style=" margin-top:5px; ">目標$<%= @project.case_wanted_money %></li>
+            <li class="orderDate" style="height:180px;margin-top:27px"><span><%= @project.case_support_people_num %><sup style='position:relative; font-size:50%; verticle-align:baseline; top:0px'>人</sup></span></li> <!-- amount of people-->
+	    <li class="blue" style="margin-top:-35px">
+		<span style="position:relative;font-size:20px">預購價$</span><%= @project.case_price %>
+	   </li>
+	    <li class="targetPrice">完成度$<%= @project.case_current_money %>/<%= @project.case_wanted_money %></li>
             <li class="timeN" style=" height:65px; "><span style=" padding-top:35px;">剩餘 <%= @project.left_days %> 天</span></li>
-            </ul>
+	    </ul>
             </div>
         </div>
 
@@ -50,21 +52,6 @@
 		<input type="hidden" name="notify_url" value="http://localhost:3000/payments">
 		<input type="hidden" name="id" value="<%= @project.id %>">
 		
-		
-		<!--Enable override of buyers’s address stored with PayPal 
-		<input type="hidden" name="address_override" value="1">
-		<input type="hidden" name="first_name" value="小柯">
-		<input type="hidden" name="last_name" value="柯">
-		<input type="hidden" name="address1" value="新北市汐止區">
-		<input type="hidden" name="city" value="新北市">
-		<input type="hidden" name="state" value="TW">
-		<input type="hidden" name="zip" value="57142">
-		<input type="hidden" name="country" value="TW">
-		<input type="hidden" name="night_phone_a" value="0912">
-		<input type="hidden" name="night_phone_b" value="5855506">
-		<input type="hidden" name="night_phone_c" value="">
-		<input type="hidden" name="email" value="jdoe@zyzzyu.com">
-		-->
 		
 		<!-- amount = money for a single product-->
 		<input type="hidden" name="amount"  value="<%= @project.case_price %>">
@@ -105,14 +92,14 @@
         <fieldset>
             <div class="input-item-text clearfix">
               <label class="fl newlabel" for="name">
-                聯絡人名稱 
+                聯絡人名稱(必填) 
               </label>
               <input class="fl long rounded" placeholder="傑克魔豆" size="30" type="text" name="name">
             </div>
             
             <div class="input-item-text clearfix">
               <label class="fl newlabel" for="address">
-                email
+                email(必填)
               </label>
               <input class="fl long rounded" placeholder="jackmodo2012@gmail.com" size="30" type="text" name="email">
             </div>
@@ -122,8 +109,13 @@
               </label>
               <input class="fl long rounded" placeholder="09xx-xxxxxx" size="30" type="text" name="phone">
             </div>
-            
-		</fieldset>
+            <div class="input-item-text clearfix">
+	     <label class="fl newlabel" for="city">
+                地址
+             </label>
+             <input class="fl long rounded" placeholder="請輸入寄貨地址" size="30" type="text" name="address">
+            </div> 
+	</fieldset>
       </div><!--end graybox -->
       </fieldset>
     </section>    

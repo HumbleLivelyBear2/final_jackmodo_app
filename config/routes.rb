@@ -8,21 +8,23 @@ JackmodoR322App::Application.routes.draw do
   match 'about' => 'staticpages#about', :as => :about
   match 'howlaunch' => 'staticpages#howlaunch', :as => :howlaunch
   match 'howbuy' => 'staticpages#howbuy', :as => :howbuy
+  match 'home' => 'staticpages#home'
   
   match 'staticpages/create_lauch_data'
   match 'staticpages/creat_contact_data'
   match 'staticpages/redirect_to_paypal'
+  match 'staticpages/create_payments'
+ 
+  match 'modo/projects/:id/support' => 'refinery/projects/projects#support', :as => :project_support
   
-  match 'projects/:id/support' => 'refinery/projects/projects#support', :as => :project_support
-  
-  # root :to => 'staticpages#home'
+  root :to => 'staticpages#home'
   
   # This line mounts Refinery's routes at the root of your application.
   # This means, any requests to the root URL of your application will go to Refinery::PagesController#home.
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Refinery relies on it being the default of "refinery"
-  mount Refinery::Core::Engine, :at => '/'
+  mount Refinery::Core::Engine, :at => '/modo'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

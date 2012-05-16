@@ -39,10 +39,11 @@
                 <li class="orderTitle"><span></span><%= @project.case_name %></li>
                 <li class="orderDiscribe">by <%= @project.designer_name %> on <%= @project.start_date %></li>
                 <li class="leftLine"></li>
-                <li class="orderDate"><span><%= @project.case_support_people_num %></span></li>
-                <li class="blue2">$<%= @project.case_current_money %></li><li class="targetPrice">目標$<%= @project.case_wanted_money %></li>
-                <li class="timeN"><span>剩餘 <%= @project.left_days %> 天</span></li>
-            </ul>
+                <li class="orderDate"><span><%= @project.case_support_people_num %><sup style='position:relative; font-size:50%; verticle-align:baseline; top:0px'>人</sup></li></span>
+                <li class="blue2"><span style="position:relative;font-size:20px">預購價$</span><%= @project.case_price %></li>
+		<li class="targetPrice">完成度$<%= @project.case_current_money %>/<%= @project.case_wanted_money %></li>
+		<li class="timeN"><span>剩餘 <%= @project.left_days %> 天</span></li> 
+	   </ul>
         </div>
      
        
